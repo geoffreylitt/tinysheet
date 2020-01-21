@@ -20,3 +20,7 @@ npm run build
 ```
 npm run watch
 ```
+
+## Notes
+
+* https://quernd.github.io/tutorials/tea-chess/index.html
