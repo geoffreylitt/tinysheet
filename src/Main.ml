@@ -1,3 +1,5 @@
+[%raw {|import ("./tinysheet.css")|}]
+
 (* This line opens the Tea.App modules into the current scope for Program access functions and types *)
 open Tea
 
@@ -61,9 +63,10 @@ let view_button title msg =
 let view (model : model) =
   div
     [] (List.map (fun row -> div [] 
-        (List.map (fun col -> span 
+        (List.map (fun col -> div
           [
-            style "padding" "0 5px"
+            onClick (Select (row, col))
+            ; classList ["cell", true]
             ; style "border" (if model.selection = (row, col) then "solid thin blue" else "solid thin #ddd")
           ]
           [text ((string_of_int row) ^ ", " ^ (string_of_int col))]) (range 10))

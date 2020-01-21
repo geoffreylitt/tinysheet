@@ -1,5 +1,6 @@
 import livereload from 'rollup-plugin-livereload';
 import node_resolve from 'rollup-plugin-node-resolve';
+import postcss from 'rollup-plugin-postcss';
 
 export default {
   input: './src/Main.bs.js',
@@ -10,7 +11,8 @@ export default {
   },
   plugins: [
     node_resolve({ module: true, browser: true }),
-    livereload('release')
+    livereload('release'),
+    postcss({plugins: []})
   ],
   watch: {
     clearScreen: false
