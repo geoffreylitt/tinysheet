@@ -30,3 +30,5 @@ BS + Tea resources:
 Spreadsheet implementation references:
 
 * https://github.com/davidbalbert/spreadsheet.js/blob/master/src/Spreadsheet.js
+* https://eugenkiss.github.io/7guis/tasks#cells
+* https://www.artima.com/pins1ed/the-scells-spreadsheet.html

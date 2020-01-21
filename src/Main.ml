@@ -21,6 +21,7 @@ type msg =
   | Select of cell  (* This will be our message to increment the counter *)
   | Move of direction
   | Key_pressed of Keyboard.key_event
+  | Edit of value
   [@@bs.deriving {accessors}] (* This is  nice quality-of-life addon from Bucklescript, it will generate function names for each constructor name, optional, but nice to cut down on code, this is unused in this example but good to have regardless *)
 
 module C = struct
@@ -68,6 +69,7 @@ let update model = function (* These should be simple enough to be self-explanat
     | Left -> { model with selection = (fst model.selection), ((snd model.selection - 1)) }
     | Right -> { model with selection = (fst model.selection), ((snd model.selection + 1)) }
     end, Cmd.none
+  | Edit value -> { model with values = (CellMap.add model.selection value model.values) }, Cmd.none
 
 (* This is just a helper function for the view, a simple function that returns a button based on some argument *)
 let view_button title msg =
@@ -82,7 +84,17 @@ let view_button title msg =
 let view (model : model) =
   div
     [] [
-      div [] [input' [classList ["formula-editor", true]] []]
+      div [] [
+        input'
+          [
+            classList ["formula-editor", true];
+            onInput (fun value -> (Edit (String value)));
+            value (if (CellMap.mem model.selection model.values)
+            then string_of_value (CellMap.find model.selection model.values)
+            else "")
+          ]
+          []
+      ]
       ; div []
       (List.map (fun row -> div [classList ["sheet-row", true]] 
         (List.map (fun col -> div

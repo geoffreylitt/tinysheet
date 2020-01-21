@@ -13,5 +13,7 @@
   max-width: 100px;
   padding: 0 5px;
   height: 20px;
-  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
