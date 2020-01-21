@@ -1,5 +1,17 @@
-.cell {
+.formula-editor {
+  width: 300px;
+  margin-bottom: 10px;
+}
+
+.sheet-row {
+  display: flex;
+}
+
+.sheet-cell {
+  flex: 1;
+  min-width: 50px;
+  max-width: 100px;
   padding: 0 5px;
-  color: #ddd;
+  height: 20px;
   display: inline-block;
 }

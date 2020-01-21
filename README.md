@@ -23,4 +23,10 @@ npm run watch
 
 ## Notes
 
+BS + Tea resources:
+
 * https://quernd.github.io/tutorials/tea-chess/index.html
+
+Spreadsheet implementation references:
+
+* https://github.com/davidbalbert/spreadsheet.js/blob/master/src/Spreadsheet.js
